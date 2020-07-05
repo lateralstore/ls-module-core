@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-GB">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title><?= strlen($this->app_page_title) ? $this->app_page_title.' | ' : null ?> <?=  Phpr::$config->get('APP_NAME', 'Site') ?></title>
+		<?= Phpr_View::includeJavaScript() ?>
+		<script type="text/javascript">jQuery.noConflict();</script>
+		<?= $this->loadResources() ?>
+		<?= Phpr_View::block("head") ?>
+	</head>
+	<body class="<?= $this->viewDataElement('body_class') ?>">
+		<? $this->renderLayout('header') ?>
+
+		<div id="content">
+			<!--[if IE]><fieldset class="ie_fix"><![endif]-->
+			<?= Phpr_View::block("view") ?>
+			<!--[if IE]></fieldset><![endif]-->
+		</div>
+		
+		<? $this->renderLayout('footer') ?>
+	</body>
+</html>

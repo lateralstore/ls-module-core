@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-GB">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title><?= strlen($this->app_page_title) ? $this->app_page_title.' | ' : null ?> <?=  Phpr::$config->get('APP_NAME', null) ?></title>
+
+		<script type="text/javascript">var phpr_root_dir = '/';</script>
+		<base href="/" />
+
+		<?= Phpr_View::includeJavaScript() ?>
+		<?= $this->loadResources() ?>
+
+		<link rel="stylesheet" href="modules/backend/resources/css/session.css" type="text/css"/>
+		<script type="text/javascript" src="modules/backend/resources/javascript/session.js"></script>
+
+		<?= Phpr_View::block("head") ?>
+	</head>
+	<body>
+		<div id="content">
+		<!--[if IE]><fieldset class="ie_fix"><![endif]-->
+		<?= Phpr_View::block("view") ?>
+		<!--[if IE]></fieldset><![endif]-->
+		</div>
+	</body>
+</html>
